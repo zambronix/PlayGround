@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101114">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23fa4c42'/%3E%3Ctext x='8' y='31' font-size='29' font-family='Arial' font-weight='900' fill='white'%3ER!%3C/text%3E%3C/svg%3E">
+  <title>RING//RIOT — The Neon Fight Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Ring Riot home"><span class="brand-mark">R<span>!</span></span><span class="brand-name">RING<span>//</span>RIOT</span></a>
+      <div class="top-center"><span class="live-dot"></span> THE NEON FIGHT CLUB <span class="top-divider">/</span> <span class="muted">SEASON 01</span></div>
+      <button class="sound-toggle" id="soundToggle" aria-pressed="true"><span class="sound-icon">◖))</span><span>SOUND ON</span></button>
+    </header>
+
+    <main>
+      <section class="intro-row">
+        <div><div class="eyebrow"><span>01</span> &nbsp; MAKE SOME NOISE</div><h1>YOUR FIGHT.<br><em>YOUR RULES.</em></h1></div>
+        <p class="intro-copy">Build your champion. Pick your stage.<br>Settle it in the ring.</p>
+      </section>
+
+      <section class="fight-layout" aria-label="Fight arena and customization">
+        <div class="arena-column">
+          <div class="arena-frame">
+            <div class="arena-topline"><span><i class="status-pip"></i> LIVE ARENA</span><span id="arenaLabel">ROOFTOP RUMBLE &nbsp;·&nbsp; TOKYO</span><span class="round-label">ROUND <b id="roundNumber">01</b></span></div>
+            <div class="fight-hud">
+              <div class="fighter-hud left-hud"><div class="hud-name"><span id="p1HudName">VOLT</span><small>PLAYER 01</small></div><div class="health-track"><div class="health-fill p1-fill" id="p1Health"></div></div><div class="hud-meta"><span id="p1Wins">● ○ ○</span><span>100%</span></div></div>
+              <div class="timer-wrap"><div class="timer" id="timer">99</div><span class="timer-caption">FIGHT!</span></div>
+              <div class="fighter-hud right-hud"><div class="hud-name"><span id="p2HudName">BYTE</span><small>CPU RIVAL</small></div><div class="health-track"><div class="health-fill p2-fill" id="p2Health"></div></div><div class="hud-meta"><span>CPU LEVEL 01</span><span id="p2Percent">100%</span></div></div>
+            </div>
+            <canvas id="gameCanvas" aria-label="Fighting game arena"></canvas>
+            <div class="arena-vignette"></div>
+            <div class="arena-overlay" id="gameOverlay">
+              <div class="overlay-card" id="overlayCard"><div class="overlay-kicker">THE CROWD IS WAITING</div><h2>READY TO<br><em>RUMBLE?</em></h2><p>Step into the spotlight. Make it personal.</p><button class="primary-button" id="startButton">START FIGHT <span>↗</span></button><div class="overlay-hint">BEST OF 3 <b>·</b> NO MERCY</div></div>
+            </div>
+            <div class="impact-flash" id="impactFlash"></div>
+          </div>
+          <div class="arena-footer"><div class="match-status"><span class="status-dot"></span><span id="matchStatus">WAITING FOR CHALLENGER</span></div><div class="key-legend"><span><kbd>A</kbd><kbd>D</kbd> MOVE</span><span><kbd>J</kbd> PUNCH</span><span><kbd>K</kbd> KICK</span><span><kbd>L</kbd> BLOCK</span></div></div>
+          <div class="touch-controls" aria-label="Touch fight controls"><div class="move-pad"><button data-control="left" aria-label="Move left">←</button><button data-control="right" aria-label="Move right">→</button></div><div class="action-pad"><button data-control="block" class="block-touch">GUARD</button><button data-control="punch" class="punch-touch">PUNCH</button><button data-control="kick" class="kick-touch">KICK</button></div></div>
+        </div>
+
+        <aside class="customizer">
+          <div class="customizer-heading"><div><div class="eyebrow"><span>02</span> &nbsp; MAKE IT YOURS</div><h2>FIGHTER LAB</h2></div><span class="lab-icon">✳</span></div>
+          <div class="fighter-card">
+            <div class="fighter-preview"><div class="preview-glow"></div><div class="fighter-art" id="fighterArt"><div class="art-hair"></div><div class="art-head"><img id="fighterPortrait" alt="Your uploaded fighter portrait"></div><div class="art-neck"></div><div class="art-body"></div><div class="art-arm arm-left"></div><div class="art-arm arm-right"></div><div class="art-belt"></div><div class="art-leg leg-left"></div><div class="art-leg leg-right"></div></div><span class="preview-tag">PLAYER 01</span><button class="upload-avatar" id="avatarUploadBtn" aria-label="Upload fighter portrait">＋</button></div>
+            <div class="fighter-details"><div><span class="field-label">FIGHTER NAME</span><input id="fighterName" maxlength="12" value="VOLT" aria-label="Fighter name"></div><div class="rank-badge"><span>RANK</span><b>ROOKIE</b></div></div>
+            <div class="color-row"><span class="field-label">FIGHT KIT</span><div class="swatches"><button class="swatch active" data-color="#fa4c42" style="--swatch:#fa4c42" aria-label="Coral red"></button><button class="swatch" data-color="#bd61f4" style="--swatch:#bd61f4" aria-label="Violet"></button><button class="swatch" data-color="#39d6b1" style="--swatch:#39d6b1" aria-label="Mint"></button><button class="swatch" data-color="#f5b942" style="--swatch:#f5b942" aria-label="Gold"></button><button class="swatch" data-color="#5799ff" style="--swatch:#5799ff" aria-label="Blue"></button></div></div>
+          </div>
+          <input type="file" id="avatarInput" accept="image/*" hidden>
+          <div class="custom-section scene-section"><div class="section-title"><span class="section-icon">▧</span><div><b>FIGHTING STAGE</b><small>Set the scene</small></div><span class="step-number">01</span></div><div class="stage-picker"><button class="stage-option active" data-stage="rooftop"><span class="stage-thumb rooftop-thumb"><i></i></span><span>NEON ROOFTOP</span><b>↗</b></button><button class="stage-option" data-stage="dojo"><span class="stage-thumb dojo-thumb"><i></i></span><span>THE DOJO</span><b>↗</b></button></div><label class="upload-scene" for="sceneInput"><span class="upload-icon">＋</span><span><b>UPLOAD YOUR OWN SCENE</b><small>JPG, PNG · up to 10 MB</small></span><span class="upload-arrow">↗</span></label><input id="sceneInput" type="file" accept="image/*" hidden></div>
+          <div class="custom-section voice-section"><div class="section-title"><span class="section-icon">◖))</span><div><b>FIGHTER VOICE</b><small>Give them something to say</small></div><span class="step-number">02</span></div><label class="voice-label" for="voiceLine">INTRO LINE <span>TEXT TO SPEECH</span></label><div class="voice-input-row"><input id="voiceLine" maxlength="100" value="You picked the wrong ring." aria-label="Fighter intro line"><button id="previewVoice" aria-label="Preview voice line">▶</button></div><div class="voice-controls"><select id="voiceSelect" aria-label="Voice style"><option value="auto">AUTO VOICE</option></select><button id="testVoice">TEST VOICE <span>↗</span></button></div><div class="voice-note"><span>✦</span> Your fighter speaks when the round begins.</div></div>
+          <div class="lab-footer"><span><i></i> CHANGES APPLY INSTANTLY</span><button id="resetButton">RESET ↻</button></div>
+        </aside>
+      </section>
+      <section class="bottom-strip"><div class="strip-title"><span>THE RULES OF THE RING</span><b>HOW TO PLAY</b></div><div class="rule"><kbd>A</kbd><kbd>D</kbd><span>MOVE</span></div><div class="rule"><kbd>J</kbd><span>PUNCH</span></div><div class="rule"><kbd>K</kbd><span>KICK</span></div><div class="rule"><kbd>L</kbd><span>BLOCK</span></div><div class="rule rule-last"><span class="touch-glyph">☝</span><span>TOUCH FRIENDLY</span></div></section>
+      <footer><span>RING//RIOT <b>© 2024</b></span><span>BUILT FOR THE LOVE OF THE FIGHT <b>✳</b></span><span>NO GLORY WITHOUT A LITTLE BRUISE.</span></footer>
+    </main>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
